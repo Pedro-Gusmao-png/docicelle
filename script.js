@@ -107,8 +107,67 @@ window.addEventListener('scroll', () => {
 });
 
 // MAPAS MODAL
+let userLat = null;
+let userLng = null;
+
 function abrirMapas() {
-  document.getElementById('mapasModal').classList.add('ativo');
+  const modal = document.getElementById('mapasModal');
+  const opcoes = document.getElementById('mapasOpcoes');
+  const loading = document.getElementById('mapasLoading');
+
+  modal.classList.add('ativo');
+  opcoes.style.display = 'none';
+  loading.classList.add('ativo');
+
+  if (!navigator.geolocation) {
+    fallbackMapas();
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      userLat = pos.coords.latitude;
+      userLng = pos.coords.longitude;
+      configurarLinks();
+      loading.classList.remove('ativo');
+      opcoes.style.display = 'flex';
+    },
+    () => {
+      fallbackMapas();
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    }
+  );
+}
+
+function fallbackMapas() {
+  userLat = null;
+  userLng = null;
+  configurarLinks();
+  const loading = document.getElementById('mapasLoading');
+  const opcoes = document.getElementById('mapasOpcoes');
+  loading.classList.remove('ativo');
+  opcoes.style.display = 'flex';
+}
+
+function configurarLinks() {
+  const google = document.getElementById('mapGoogle');
+  const waze = document.getElementById('mapWaze');
+  const apple = document.getElementById('mapApple');
+
+  if (userLat && userLng) {
+    google.href = `https://www.google.com/maps?q=${userLat},${userLng}`;
+    waze.href = `https://www.waze.com/ul?ll=${userLat},${userLng}&navigate=yes`;
+    apple.href = `https://maps.apple.com/?ll=${userLat},${userLng}&q=${userLat},${userLng}`;
+  } else {
+    const addr = encodeURIComponent('Rua da Confeitaria 123 Centro');
+    google.href = `https://www.google.com/maps?q=${addr}`;
+    waze.href = `https://www.waze.com/ul?q=${addr}`;
+    apple.href = `https://maps.apple.com/?q=${addr}`;
+  }
 }
 
 function fecharMapas() {
