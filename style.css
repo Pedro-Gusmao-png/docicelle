@@ -881,136 +881,6 @@ section {
   transform: translateX(6px);
 }
 
-/* MAPAS MODAL */
-.mapas-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-}
-
-.mapas-modal.ativo {
-  display: flex;
-}
-
-.mapas-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(13, 17, 21, 0.5);
-  backdrop-filter: blur(4px);
-}
-
-.mapas-box {
-  position: relative;
-  background: var(--branco);
-  width: 90%;
-  max-width: 360px;
-  border-radius: 2px;
-  overflow: hidden;
-  animation: fadeUp 0.3s ease;
-}
-
-.mapas-box-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  border-bottom: 1px solid rgba(145, 104, 79, 0.1);
-}
-
-.mapas-box-header h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
-  color: var(--marrom);
-  letter-spacing: 1px;
-}
-
-.mapas-box-header button {
-  background: none;
-  border: none;
-  color: var(--marrom-light);
-  cursor: pointer;
-  padding: 4px;
-  line-height: 1;
-  transition: color 0.3s;
-  display: flex;
-  align-items: center;
-}
-
-.mapas-box-header button:hover {
-  color: var(--marrom-dark);
-}
-
-.mapas-opcoes {
-  display: flex;
-  flex-direction: column;
-}
-
-.mapas-opcao {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 24px;
-  text-decoration: none;
-  font-size: 1rem;
-  color: var(--marrom-dark);
-  letter-spacing: 1px;
-  transition: background 0.3s;
-  border-bottom: 1px solid rgba(145, 104, 79, 0.06);
-}
-
-.mapas-opcao:last-child {
-  border-bottom: none;
-}
-
-.mapas-opcao:hover {
-  background: var(--rosa-light);
-}
-
-.mapas-opcao-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-}
-
-.mapas-opcao-icon svg {
-  color: var(--marrom);
-}
-
-.mapas-loading {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  padding: 32px 24px;
-}
-
-.mapas-loading.ativo {
-  display: flex;
-}
-
-.mapas-loading p {
-  font-size: 0.85rem;
-  color: var(--marrom-light);
-  letter-spacing: 1px;
-}
-
-.mapas-spinner {
-  width: 32px;
-  height: 32px;
-  border: 2px solid var(--rosa-light);
-  border-top-color: var(--marrom);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
 /* FOOTER */
 .footer {
   background: var(--preto);
@@ -1211,9 +1081,6 @@ section {
   .footer { padding: 60px 24px 30px; }
   .footer-content { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
-
-  /* MODAL */
-  .mapas-box { width: 85%; max-width: 320px; }
 }
 
 /* CELULAR PEQUENO */
@@ -1246,15 +1113,12 @@ section {
   .contato-heading { font-size: 1.5rem; }
   .contato-ornament-line { width: 30px; }
   .contato-link { padding: 18px 16px; gap: 14px; }
-  .contato-link-icon { width: 40px; height: 40px; min-width: 40px; font-size: 1rem; }
+  .contato-link-icon { width: 40px; height: 40px; min-width: 40px; }
+  .contato-link-icon svg { width: 18px; height: 18px; }
   .contato-link-title { font-size: 0.8rem; }
   .contato-link-info { font-size: 0.82rem; }
   .contato-link-arrow { font-size: 1rem; }
 
   .footer-brand h3 { font-size: 1.4rem; }
   .footer-col h4 { font-size: 0.9rem; }
-
-  .mapas-box { width: 90%; }
-  .mapas-box-header h3 { font-size: 0.85rem; }
-  .mapas-opcao { padding: 16px 20px; font-size: 0.9rem; }
 }
