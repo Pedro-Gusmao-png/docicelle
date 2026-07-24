@@ -669,7 +669,13 @@ section {
 }
 
 .insta-btn-icon {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.insta-btn-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .insta-btn-text {
@@ -824,8 +830,13 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
   transition: all 0.4s ease;
+}
+
+.contato-link-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--marrom);
 }
 
 .contato-link:hover .contato-link-icon {
@@ -919,12 +930,13 @@ section {
 .mapas-box-header button {
   background: none;
   border: none;
-  font-size: 1rem;
   color: var(--marrom-light);
   cursor: pointer;
   padding: 4px;
   line-height: 1;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 .mapas-box-header button:hover {
@@ -958,9 +970,45 @@ section {
 }
 
 .mapas-opcao-icon {
-  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
-  text-align: center;
+}
+
+.mapas-opcao-icon svg {
+  color: var(--marrom);
+}
+
+.mapas-loading {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 24px;
+}
+
+.mapas-loading.ativo {
+  display: flex;
+}
+
+.mapas-loading p {
+  font-size: 0.85rem;
+  color: var(--marrom-light);
+  letter-spacing: 1px;
+}
+
+.mapas-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--rosa-light);
+  border-top-color: var(--marrom);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 /* FOOTER */
